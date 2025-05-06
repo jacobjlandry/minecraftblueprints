@@ -1,0 +1,162 @@
+.map-controls {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px auto;
+  max-width: 800px;
+}
+
+.save-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.autosave-control {
+  margin-bottom: 16px;
+}
+
+.autosave-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.autosave-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.autosave-label span {
+  color: #333;
+  font-size: 14px;
+}
+
+.autosave-label input[type="checkbox"]:disabled + span {
+  color: #999;
+  cursor: not-allowed;
+}
+
+.map-name-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.map-name-input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.save-button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.save-button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.save-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #d32f2f;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.saved-maps {
+  margin-top: 24px;
+}
+
+.saved-maps h3 {
+  margin: 0 0 16px 0;
+  color: #333;
+}
+
+.map-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.map-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.map-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.map-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.map-date {
+  font-size: 12px;
+  color: #666;
+}
+
+.map-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.load-button,
+.delete-button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.load-button {
+  background-color: #2196F3;
+  color: white;
+}
+
+.load-button:hover {
+  background-color: #1976D2;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.no-maps {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 16px;
+} 

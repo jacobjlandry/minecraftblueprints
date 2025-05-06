@@ -65,6 +65,11 @@ export interface Grid {
   height: number;
 }
 
+export interface Blueprint {
+  levels: Grid[];
+  currentLevel: number;
+}
+
 export const DEFAULT_GRID_SIZE = 32;
 
 export const MATERIAL_LABELS: Record<MaterialType, string> = {

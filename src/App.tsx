@@ -15,7 +15,7 @@ function App() {
         onMaterialSelect={setSelectedMaterial}
       />
       <BlueprintGrid selectedMaterial={selectedMaterial} />
-    </div>
+      </div>
   )
 }
 

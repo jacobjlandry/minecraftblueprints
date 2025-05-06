@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-import type { Grid } from '../types/minecraft';
+import type { Blueprint } from '../types/minecraft';
 import { MapStorage, type SavedMap } from '../utils/MapStorage';
 import './MapControls.css';
 
 interface MapControlsProps {
-  currentGrid: Grid;
-  onLoadMap: (grid: Grid) => void;
+  currentBlueprint: Blueprint;
+  onLoadMap: (blueprint: Blueprint) => void;
 }
 
-export const MapControls = ({ currentGrid, onLoadMap }: MapControlsProps) => {
+export const MapControls = ({ currentBlueprint, onLoadMap }: MapControlsProps) => {
   const [mapName, setMapName] = useState('');
   const [savedMaps, setSavedMaps] = useState<SavedMap[]>([]);
   const [mapStorage] = useState(() => new MapStorage());
@@ -25,7 +25,7 @@ export const MapControls = ({ currentGrid, onLoadMap }: MapControlsProps) => {
     if (isAutosaveEnabled && currentMapId && mapName.trim()) {
       handleAutosave();
     }
-  }, [currentGrid]);
+  }, [currentBlueprint]);
 
   const loadSavedMaps = async () => {
     try {
@@ -40,7 +40,7 @@ export const MapControls = ({ currentGrid, onLoadMap }: MapControlsProps) => {
     if (!currentMapId || !mapName.trim()) return;
 
     try {
-      await mapStorage.updateMap(currentMapId, mapName.trim(), currentGrid);
+      await mapStorage.updateMap(currentMapId, mapName.trim(), currentBlueprint);
       await loadSavedMaps();
     } catch (err) {
       setError('Failed to autosave map');
@@ -58,7 +58,7 @@ export const MapControls = ({ currentGrid, onLoadMap }: MapControlsProps) => {
     setError(null);
 
     try {
-      const savedMap = await mapStorage.saveMap(mapName.trim(), currentGrid);
+      const savedMap = await mapStorage.saveMap(mapName.trim(), currentBlueprint);
       setCurrentMapId(savedMap.id);
       setMapName(savedMap.name);
       setIsAutosaveEnabled(true);
@@ -72,7 +72,7 @@ export const MapControls = ({ currentGrid, onLoadMap }: MapControlsProps) => {
 
   const handleLoad = async (map: SavedMap) => {
     try {
-      onLoadMap(map.grid);
+      onLoadMap(map.blueprint);
       setMapName(map.name);
       setCurrentMapId(map.id);
       setIsAutosaveEnabled(true);

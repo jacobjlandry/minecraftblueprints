@@ -1,9 +1,9 @@
-import type { Grid } from '../types/minecraft';
+import type { Grid, Blueprint } from '../types/minecraft';
 
 export interface SavedMap {
   id: string;
   name: string;
-  grid: Grid;
+  blueprint: Blueprint;
   createdAt: number;
   updatedAt: number;
 }
@@ -48,13 +48,13 @@ export class MapStorage {
     }
   }
 
-  async saveMap(name: string, grid: Grid): Promise<SavedMap> {
+  async saveMap(name: string, blueprint: Blueprint): Promise<SavedMap> {
     await this.ensureConnection();
 
     const map: SavedMap = {
       id: crypto.randomUUID(),
       name,
-      grid,
+      blueprint,
       createdAt: Date.now(),
       updatedAt: Date.now()
     };
@@ -74,7 +74,7 @@ export class MapStorage {
     });
   }
 
-  async updateMap(id: string, name: string, grid: Grid): Promise<SavedMap> {
+  async updateMap(id: string, name: string, blueprint: Blueprint): Promise<SavedMap> {
     await this.ensureConnection();
 
     return new Promise((resolve, reject) => {
@@ -97,7 +97,7 @@ export class MapStorage {
         const updatedMap: SavedMap = {
           ...existingMap,
           name,
-          grid,
+          blueprint,
           updatedAt: Date.now()
         };
 

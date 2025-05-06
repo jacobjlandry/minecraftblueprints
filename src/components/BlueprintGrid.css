@@ -16,6 +16,14 @@
   margin: 0 auto;
 }
 
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 800px;
+}
+
 .grid-row {
   display: flex;
 }

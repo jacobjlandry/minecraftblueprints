@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Grid, GridCell, MaterialType } from '../types/minecraft';
 import { DEFAULT_GRID_SIZE, MATERIAL_LABELS } from '../types/minecraft';
 import { MapControls } from './MapControls';
+import { BlockCounter } from './BlockCounter';
 import './BlueprintGrid.css';
 
 interface BlueprintGridProps {
@@ -47,7 +48,10 @@ export const BlueprintGrid = ({ selectedMaterial }: BlueprintGridProps) => {
           </div>
         ))}
       </div>
-      <MapControls currentGrid={grid} onLoadMap={handleLoadMap} />
+      <div className="controls-container">
+        <MapControls currentGrid={grid} onLoadMap={handleLoadMap} />
+        <BlockCounter grid={grid} />
+      </div>
     </div>
   );
 }; 

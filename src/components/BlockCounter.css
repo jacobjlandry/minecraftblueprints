@@ -1,0 +1,129 @@
+.block-counter {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px auto;
+  max-width: 800px;
+}
+
+.block-counter h3 {
+  margin: 0 0 16px 0;
+  color: #333;
+}
+
+.block-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.block-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.block-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.block-sample {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.block-name {
+  color: #333;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.block-count {
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+  min-width: 40px;
+  text-align: right;
+}
+
+.no-blocks {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 16px;
+}
+
+/* Reuse the same block colors from BlueprintGrid.css */
+.block-sample.oak_planks { background-color: #b87f4d; }
+.block-sample.spruce_planks { background-color: #6b4c35; }
+.block-sample.birch_planks { background-color: #d6c7a9; }
+.block-sample.jungle_planks { background-color: #b87f4d; }
+.block-sample.acacia_planks { background-color: #b87f4d; }
+.block-sample.dark_oak_planks { background-color: #4c3526; }
+.block-sample.mangrove_planks { background-color: #b87f4d; }
+.block-sample.cherry_planks { background-color: #d6c7a9; }
+
+.block-sample.stone { background-color: #7f7f7f; }
+.block-sample.cobblestone { background-color: #8f8f8f; }
+.block-sample.smooth_stone { background-color: #9f9f9f; }
+.block-sample.andesite { background-color: #8f8f8f; }
+.block-sample.polished_andesite { background-color: #9f9f9f; }
+.block-sample.diorite { background-color: #e0e0e0; }
+.block-sample.polished_diorite { background-color: #f0f0f0; }
+.block-sample.granite { background-color: #9f6f6f; }
+.block-sample.polished_granite { background-color: #af7f7f; }
+
+.block-sample.iron_block { background-color: #d8d8d8; }
+.block-sample.gold_block { background-color: #ffd700; }
+.block-sample.diamond_block { background-color: #5de7ff; }
+.block-sample.emerald_block { background-color: #50c878; }
+.block-sample.lapis_block { background-color: #1e90ff; }
+.block-sample.redstone_block { background-color: #ff0000; }
+.block-sample.copper_block { background-color: #b87333; }
+.block-sample.exposed_copper { background-color: #c19a6b; }
+.block-sample.weathered_copper { background-color: #8b7355; }
+.block-sample.oxidized_copper { background-color: #6b4423; }
+
+.block-sample.glass { background-color: rgba(255, 255, 255, 0.5); }
+.block-sample.white_stained_glass { background-color: rgba(255, 255, 255, 0.5); }
+.block-sample.black_stained_glass { background-color: rgba(0, 0, 0, 0.5); }
+.block-sample.ice { background-color: rgba(200, 255, 255, 0.5); }
+.block-sample.blue_ice { background-color: rgba(150, 200, 255, 0.5); }
+.block-sample.packed_ice { background-color: rgba(180, 220, 255, 0.5); }
+
+.block-sample.terracotta { background-color: #a0522d; }
+.block-sample.white_concrete { background-color: #ffffff; }
+.block-sample.black_concrete { background-color: #1a1a1a; }
+.block-sample.red_concrete { background-color: #8b0000; }
+.block-sample.blue_concrete { background-color: #00008b; }
+.block-sample.green_concrete { background-color: #006400; }
+.block-sample.yellow_concrete { background-color: #ffd700; }
+
+.block-sample.bedrock { background-color: #404040; }
+.block-sample.obsidian { background-color: #1a1a1a; }
+.block-sample.end_stone { background-color: #e0e0c0; }
+.block-sample.netherrack { background-color: #8b0000; }
+.block-sample.soul_sand { background-color: #4a4a4a; }
+.block-sample.soul_soil { background-color: #5a5a5a; }
+.block-sample.crimson_nylium { background-color: #8b0000; }
+.block-sample.warped_nylium { background-color: #006400; } 

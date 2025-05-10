@@ -4,11 +4,12 @@ import { MapStorage, type SavedMap } from '../utils/MapStorage';
 import './MapControls.css';
 
 interface MapControlsProps {
-  currentBlueprint: Blueprint;
-  onLoadMap: (blueprint: Blueprint) => void;
+  blueprint: Blueprint;
+  onBlueprintChange: (blueprint: Blueprint) => void;
+  hasBlocks: boolean;
 }
 
-export const MapControls = ({ currentBlueprint, onLoadMap }: MapControlsProps) => {
+export const MapControls = ({ blueprint, onBlueprintChange, hasBlocks }: MapControlsProps) => {
   const [mapName, setMapName] = useState('');
   const [savedMaps, setSavedMaps] = useState<SavedMap[]>([]);
   const [mapStorage] = useState(() => new MapStorage());
@@ -25,7 +26,7 @@ export const MapControls = ({ currentBlueprint, onLoadMap }: MapControlsProps) =
     if (isAutosaveEnabled && currentMapId && mapName.trim()) {
       handleAutosave();
     }
-  }, [currentBlueprint]);
+  }, [blueprint]);
 
   const loadSavedMaps = async () => {
     try {
@@ -40,7 +41,7 @@ export const MapControls = ({ currentBlueprint, onLoadMap }: MapControlsProps) =
     if (!currentMapId || !mapName.trim()) return;
 
     try {
-      await mapStorage.updateMap(currentMapId, mapName.trim(), currentBlueprint);
+      await mapStorage.updateMap(currentMapId, mapName.trim(), blueprint);
       await loadSavedMaps();
     } catch (err) {
       setError('Failed to autosave map');
@@ -58,7 +59,7 @@ export const MapControls = ({ currentBlueprint, onLoadMap }: MapControlsProps) =
     setError(null);
 
     try {
-      const savedMap = await mapStorage.saveMap(mapName.trim(), currentBlueprint);
+      const savedMap = await mapStorage.saveMap(mapName.trim(), blueprint);
       setCurrentMapId(savedMap.id);
       setMapName(savedMap.name);
       setIsAutosaveEnabled(true);
@@ -72,7 +73,7 @@ export const MapControls = ({ currentBlueprint, onLoadMap }: MapControlsProps) =
 
   const handleLoad = async (map: SavedMap) => {
     try {
-      onLoadMap(map.blueprint);
+      onBlueprintChange(map.blueprint);
       setMapName(map.name);
       setCurrentMapId(map.id);
       setIsAutosaveEnabled(true);

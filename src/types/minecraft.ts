@@ -1,5 +1,29 @@
 export type MaterialType = 
-  // Wood types
+  | 'stone'
+  | 'granite'
+  | 'polished_granite'
+  | 'diorite'
+  | 'polished_diorite'
+  | 'andesite'
+  | 'polished_andesite'
+  | 'grass_block'
+  | 'dirt'
+  | 'coarse_dirt'
+  | 'podzol'
+  | 'rooted_dirt'
+  | 'mud'
+  | 'sand'
+  | 'red_sand'
+  | 'gravel'
+  | 'clay'
+  | 'sandstone'
+  | 'red_sandstone'
+  | 'cobblestone'
+  | 'bedrock'
+  | 'deepslate'
+  | 'tuff'
+  | 'calcite'
+  | 'dripstone_block'
   | 'oak_planks'
   | 'spruce_planks'
   | 'birch_planks'
@@ -7,56 +31,66 @@ export type MaterialType =
   | 'acacia_planks'
   | 'dark_oak_planks'
   | 'mangrove_planks'
-  | 'cherry_planks'
-  // Stone types
-  | 'stone'
-  | 'cobblestone'
-  | 'smooth_stone'
-  | 'andesite'
-  | 'polished_andesite'
-  | 'diorite'
-  | 'polished_diorite'
-  | 'granite'
-  | 'polished_granite'
-  // Metal blocks
-  | 'iron_block'
-  | 'gold_block'
-  | 'diamond_block'
-  | 'emerald_block'
-  | 'lapis_block'
-  | 'redstone_block'
-  | 'copper_block'
-  | 'exposed_copper'
-  | 'weathered_copper'
-  | 'oxidized_copper'
-  // Glass and transparent
-  | 'glass'
-  | 'white_stained_glass'
-  | 'black_stained_glass'
-  | 'ice'
-  | 'blue_ice'
-  | 'packed_ice'
-  // Terracotta and concrete
-  | 'terracotta'
-  | 'white_concrete'
-  | 'black_concrete'
-  | 'red_concrete'
-  | 'blue_concrete'
-  | 'green_concrete'
-  | 'yellow_concrete'
-  // Special
-  | 'air'
-  | 'bedrock'
+  | 'oak_log'
+  | 'spruce_log'
+  | 'birch_log'
+  | 'jungle_log'
+  | 'acacia_log'
+  | 'dark_oak_log'
+  | 'mangrove_log'
+  | 'coal_ore'
+  | 'iron_ore'
+  | 'copper_ore'
+  | 'gold_ore'
+  | 'redstone_ore'
+  | 'emerald_ore'
+  | 'lapis_lazuli_ore'
+  | 'diamond_ore'
   | 'obsidian'
-  | 'end_stone'
   | 'netherrack'
-  | 'soul_sand'
-  | 'soul_soil'
-  | 'crimson_nylium'
-  | 'warped_nylium';
+  | 'nether_quartz_ore'
+  | 'basalt'
+  | 'blackstone'
+  | 'ancient_debris'
+  | 'end_stone'
+  | 'purpur_block'
+  | 'chorus_plant'
+  | 'chorus_flower'
+  | 'crafting_table'
+  | 'furnace'
+  | 'blast_furnace'
+  | 'smoker'
+  | 'anvil'
+  | 'grindstone'
+  | 'stonecutter'
+  | 'smithing_table'
+  | 'loom'
+  | 'cartography_table'
+  | 'bookshelf'
+  | 'lectern'
+  | 'enchanting_table'
+  | 'chest'
+  | 'barrel'
+  | 'shulker_box'
+  | 'ender_chest'
+  | 'torch'
+  | 'lantern'
+  | 'soul_lantern'
+  | 'redstone_lamp'
+  | 'glowstone'
+  | 'sea_lantern'
+  | 'jack_olantern'
+  | 'glass'
+  | 'tinted_glass'
+  | 'glass_pane'
+  | 'ice'
+  | 'packed_ice'
+  | 'blue_ice'
+  | 'air';
 
 export interface GridCell {
   material: MaterialType;
+  collision: 'full' | 'partial' | 'none';
 }
 
 export interface Grid {
@@ -73,59 +107,92 @@ export interface Blueprint {
 export const DEFAULT_GRID_SIZE = 32;
 
 export const MATERIAL_LABELS: Record<MaterialType, string> = {
-  // Wood types
-  oak_planks: 'O',
-  spruce_planks: 'S',
-  birch_planks: 'B',
-  jungle_planks: 'J',
-  acacia_planks: 'A',
-  dark_oak_planks: 'D',
-  mangrove_planks: 'M',
-  cherry_planks: 'C',
-  // Stone types
-  stone: 's',
-  cobblestone: 'c',
-  smooth_stone: 'S',
-  andesite: 'a',
-  polished_andesite: 'A',
-  diorite: 'd',
-  polished_diorite: 'D',
-  granite: 'g',
-  polished_granite: 'G',
-  // Metal blocks
-  iron_block: 'i',
-  gold_block: 'g',
-  diamond_block: 'd',
-  emerald_block: 'e',
-  lapis_block: 'l',
-  redstone_block: 'r',
-  copper_block: 'c',
-  exposed_copper: 'E',
-  weathered_copper: 'W',
-  oxidized_copper: 'O',
-  // Glass and transparent
-  glass: 'G',
-  white_stained_glass: 'W',
-  black_stained_glass: 'B',
-  ice: 'i',
-  blue_ice: 'b',
-  packed_ice: 'p',
-  // Terracotta and concrete
-  terracotta: 't',
-  white_concrete: 'w',
-  black_concrete: 'b',
-  red_concrete: 'r',
-  blue_concrete: 'b',
-  green_concrete: 'g',
-  yellow_concrete: 'y',
-  // Special
-  air: ' ',
+  stone: 'S',
+  granite: 'G',
+  polished_granite: 'PG',
+  diorite: 'D',
+  polished_diorite: 'PD',
+  andesite: 'A',
+  polished_andesite: 'PA',
+  grass_block: 'GB',
+  dirt: 'D',
+  coarse_dirt: 'CD',
+  podzol: 'P',
+  rooted_dirt: 'RD',
+  mud: 'M',
+  sand: 'S',
+  red_sand: 'RS',
+  gravel: 'G',
+  clay: 'C',
+  sandstone: 'SS',
+  red_sandstone: 'RSS',
+  cobblestone: 'C',
   bedrock: 'B',
+  deepslate: 'DS',
+  tuff: 'T',
+  calcite: 'C',
+  dripstone_block: 'DB',
+  oak_planks: 'OP',
+  spruce_planks: 'SP',
+  birch_planks: 'BP',
+  jungle_planks: 'JP',
+  acacia_planks: 'AP',
+  dark_oak_planks: 'DOP',
+  mangrove_planks: 'MP',
+  oak_log: 'OL',
+  spruce_log: 'SL',
+  birch_log: 'BL',
+  jungle_log: 'JL',
+  acacia_log: 'AL',
+  dark_oak_log: 'DOL',
+  mangrove_log: 'ML',
+  coal_ore: 'CO',
+  iron_ore: 'IO',
+  copper_ore: 'CO',
+  gold_ore: 'GO',
+  redstone_ore: 'RO',
+  emerald_ore: 'EO',
+  lapis_lazuli_ore: 'LO',
+  diamond_ore: 'DO',
   obsidian: 'O',
-  end_stone: 'E',
-  netherrack: 'n',
-  soul_sand: 's',
-  soul_soil: 'S',
-  crimson_nylium: 'c',
-  warped_nylium: 'w'
+  netherrack: 'N',
+  nether_quartz_ore: 'NQO',
+  basalt: 'B',
+  blackstone: 'BS',
+  ancient_debris: 'AD',
+  end_stone: 'ES',
+  purpur_block: 'PB',
+  chorus_plant: 'CP',
+  chorus_flower: 'CF',
+  crafting_table: 'CT',
+  furnace: 'F',
+  blast_furnace: 'BF',
+  smoker: 'S',
+  anvil: 'A',
+  grindstone: 'G',
+  stonecutter: 'SC',
+  smithing_table: 'ST',
+  loom: 'L',
+  cartography_table: 'CT',
+  bookshelf: 'B',
+  lectern: 'L',
+  enchanting_table: 'ET',
+  chest: 'C',
+  barrel: 'B',
+  shulker_box: 'SB',
+  ender_chest: 'EC',
+  torch: 'T',
+  lantern: 'L',
+  soul_lantern: 'SL',
+  redstone_lamp: 'RL',
+  glowstone: 'G',
+  sea_lantern: 'SL',
+  jack_olantern: 'JO',
+  glass: 'G',
+  tinted_glass: 'TG',
+  glass_pane: 'GP',
+  ice: 'I',
+  packed_ice: 'PI',
+  blue_ice: 'BI',
+  air: ' '
 }; 

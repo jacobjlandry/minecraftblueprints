@@ -15,8 +15,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  max-height: 400px;
-  overflow-y: auto;
 }
 
 .block-item {
@@ -38,11 +36,12 @@
 .block-sample {
   width: 32px;
   height: 32px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .block-label {
@@ -53,15 +52,13 @@
 }
 
 .block-name {
+  font-weight: 500;
   color: #333;
-  font-size: 14px;
-  text-transform: capitalize;
 }
 
 .block-count {
   font-weight: bold;
-  color: #333;
-  font-size: 16px;
+  color: #666;
   min-width: 40px;
   text-align: right;
 }

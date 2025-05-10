@@ -65,15 +65,38 @@
   height: 24px;
   border: 1px solid #ddd;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
 }
 
 .grid-cell:hover {
   border-color: #666;
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.grid-cell.air {
+  background-color: transparent;
+}
+
+/* Special handling for transparent blocks */
+.grid-cell.glass,
+.grid-cell.ice,
+.grid-cell.water {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Add a subtle shadow to make blocks pop */
+.grid-cell:not(.air) {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a highlight effect on hover */
+.grid-cell:not(.air):hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cell-label {
@@ -152,7 +175,6 @@
 .grid-cell.yellow_concrete { background-color: #ffd700; }
 
 /* Special */
-.grid-cell.air { background-color: transparent; }
 .grid-cell.bedrock { background-color: #404040; }
 .grid-cell.obsidian { background-color: #1a1a1a; }
 .grid-cell.end_stone { background-color: #e0e0c0; }

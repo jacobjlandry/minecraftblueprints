@@ -1,4 +1,4 @@
-import type { Grid, Blueprint } from '../types/minecraft';
+import type { Blueprint } from '../types/minecraft';
 
 export interface SavedMap {
   id: string;

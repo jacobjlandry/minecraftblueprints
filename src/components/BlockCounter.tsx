@@ -1,7 +1,7 @@
 import React from 'react';
 import type { MaterialType, Grid } from '../types/minecraft';
 import { BLOCKS } from '../data/blocks';
-import { getTextureStyle, handleTextureError, getFallbackColor } from '../utils/textureUtils';
+import { handleTextureError } from '../utils/textureUtils';
 import './BlockCounter.css';
 
 interface BlockCounterProps {
@@ -32,7 +32,7 @@ const BlockCounter: React.FC<BlockCounterProps> = ({ grid }) => {
             <div key={material} className="block-item">
               <div className="block-sample" style={{ backgroundColor: '#ffffff' }}>
                 <img
-                  src={BLOCKS[material as MaterialType].texture}
+                  src={BLOCKS[material as MaterialType].texture || undefined}
                   alt={BLOCKS[material as MaterialType].name}
                   onError={() => handleTextureError(material as MaterialType, BLOCKS[material as MaterialType].texture)}
                   style={{

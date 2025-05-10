@@ -1,7 +1,7 @@
 import React from 'react';
 import type { MaterialType } from '../types/minecraft';
 import { BLOCKS } from '../data/blocks';
-import { getTextureStyle, handleTextureError, getFallbackColor } from '../utils/textureUtils';
+import { handleTextureError } from '../utils/textureUtils';
 import './MaterialSelector.css';
 
 interface MaterialSelectorProps {

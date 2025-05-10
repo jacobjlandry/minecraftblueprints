@@ -6,10 +6,9 @@ import './MapControls.css';
 interface MapControlsProps {
   blueprint: Blueprint;
   onBlueprintChange: (blueprint: Blueprint) => void;
-  hasBlocks: boolean;
 }
 
-export const MapControls = ({ blueprint, onBlueprintChange, hasBlocks }: MapControlsProps) => {
+export const MapControls = ({ blueprint, onBlueprintChange }: MapControlsProps) => {
   const [mapName, setMapName] = useState('');
   const [savedMaps, setSavedMaps] = useState<SavedMap[]>([]);
   const [mapStorage] = useState(() => new MapStorage());

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { BlueprintGrid } from './components/BlueprintGrid'
 import MaterialSelector from './components/MaterialSelector'
 import type { MaterialType } from './types/minecraft'

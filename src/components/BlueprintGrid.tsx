@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import type { Grid, GridCell, MaterialType, Blueprint } from '../types/minecraft';
+import { useState } from 'react';
+import type { Grid, MaterialType, Blueprint } from '../types/minecraft';
 import { DEFAULT_GRID_SIZE } from '../types/minecraft';
 import { BLOCKS } from '../data/blocks';
-import { getTextureStyle, handleTextureError, getFallbackColor } from '../utils/textureUtils';
+import { handleTextureError } from '../utils/textureUtils';
 import { MapControls } from './MapControls';
 import BlockCounter from './BlockCounter';
 import './BlueprintGrid.css';
@@ -46,16 +46,11 @@ export const BlueprintGrid = ({ selectedMaterial }: BlueprintGridProps) => {
     });
   };
 
-  const hasBlocks = (grid: Grid): boolean => {
-    return grid.cells.some(row => row.some(cell => cell.material !== 'air'));
-  };
-
   return (
     <div className="blueprint-container">
       <MapControls
         blueprint={blueprint}
         onBlueprintChange={setBlueprint}
-        hasBlocks={hasBlocks(blueprint.levels[blueprint.currentLevel])}
       />
       <div className="blueprint-grid">
         {blueprint.levels[blueprint.currentLevel].cells.map((row, rowIndex) => (
@@ -69,7 +64,7 @@ export const BlueprintGrid = ({ selectedMaterial }: BlueprintGridProps) => {
               >
                 {cell.material !== 'air' && (
                   <img
-                    src={BLOCKS[cell.material].texture}
+                    src={BLOCKS[cell.material].texture || undefined}
                     alt={BLOCKS[cell.material].name}
                     onError={() => handleTextureError(cell.material, BLOCKS[cell.material].texture)}
                     style={{

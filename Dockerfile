@@ -1,10 +1,11 @@
-FROM node:20-alpine
+FROM node:20-slim
 
 WORKDIR /app
 
 # Install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm install && \
+    npm install -g vite@latest
 
 # Copy the rest of the application
 COPY . .

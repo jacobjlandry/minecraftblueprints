@@ -2,9 +2,12 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+# Install Vite globally
+RUN npm install -g vite
+
 # Install dependencies
 COPY package.json yarn.lock ./
-RUN yarn install
+RUN yarn install --frozen-lockfile
 
 # Copy the rest of the application
 COPY . .
